@@ -1,0 +1,128 @@
+﻿  Main.c
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(135,13): error C2061: syntax error: identifier 'remainingCards'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(135,13): error C2059: syntax error: ';'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(135,28): error C2059: syntax error: '['
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(140,6): error C2061: syntax error: identifier 'isPlayersBust'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(140,6): error C2059: syntax error: ';'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(140,20): error C2059: syntax error: '['
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(141,6): error C2061: syntax error: identifier 'playersHasBlackjack'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(141,6): error C2059: syntax error: ';'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(141,26): error C2059: syntax error: '['
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(142,6): error C2061: syntax error: identifier 'playersCanDraw'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(142,6): error C2059: syntax error: ';'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(142,21): error C2059: syntax error: '['
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(200,49): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(200,48): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(200,27): warning C4473: 'fprintf' : not enough arguments passed for format string
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(200,27):
+  placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(200,27):
+  the missing variadic argument 1 is required by format string '%d'
+  
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(201,55): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(201,54): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(201,27): warning C4473: 'fprintf' : not enough arguments passed for format string
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(201,27):
+  placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(201,27):
+  the missing variadic argument 1 is required by format string '%d'
+  
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(202,50): error C2065: 'playersCanDraw': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(202,49): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(202,27): warning C4473: 'fprintf' : not enough arguments passed for format string
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(202,27):
+  placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(202,27):
+  the missing variadic argument 1 is required by format string '%d'
+  
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(220,54): error C2065: 'remainingCards': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(220,53): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(220,31): warning C4473: 'fprintf' : not enough arguments passed for format string
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(220,31):
+  placeholders and their parameters expect 1 variadic arguments, but 0 were provided
+  C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(220,31):
+  the missing variadic argument 1 is required by format string '%d'
+  
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(247,31): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(247,30): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(249,37): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(249,36): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(251,32): error C2065: 'playersCanDraw': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(251,31): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(277,36): error C2065: 'remainingCards': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(277,35): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(319,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(320,10): error C2065: 'bool': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(320,10): error C2146: syntax error: missing ';' before identifier 'card'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(320,14): error C2065: 'card': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(325,14): error C2065: 'card': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(325,31): error C2065: 'remainingCards': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(325,30): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(326,17): error C2065: 'card': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(327,28): error C2065: 'remainingCards': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(327,27): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(327,56): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(329,19): error C2065: 'card': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(329,27): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(474,29): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(474,28): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(474,38): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(476,52): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(476,51): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(476,61): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(480,30): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(480,29): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(504,18): error C2065: 'bool': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(504,18): error C2146: syntax error: missing ';' before identifier 'running'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(504,26): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(504,32): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(528,29): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(528,36): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(546,29): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(546,36): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(547,35): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(547,34): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(547,44): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(551,29): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(551,36): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(552,41): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(552,40): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(552,50): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(556,29): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(556,36): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(560,29): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(657,14): error C2065: 'bool': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(657,14): error C2146: syntax error: missing ';' before identifier 'running'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(657,22): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(657,28): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(680,25): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(680,32): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(701,25): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(701,32): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(702,31): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(702,30): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(702,40): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(706,25): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(706,32): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(707,37): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(707,36): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(707,46): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(711,25): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(711,32): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(715,25): error C2065: 'running': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(774,23): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(774,22): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(775,14): error C2065: 'bool': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(775,14): error C2146: syntax error: missing ';' before identifier 'isAllPlayersBust'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(775,31): error C2065: 'isAllPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(775,37): error C2065: 'true': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(777,32): error C2065: 'isPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(777,31): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(779,34): error C2065: 'isAllPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(779,41): error C2065: 'false': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(782,29): error C2065: 'isAllPlayersBust': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(789,33): error C2065: 'playersHasBlackjack': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(789,32): error C2109: subscript requires array or pointer type
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(791,18): error C2065: 'bool': undeclared identifier
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(791,18): error C2146: syntax error: missing ';' before identifier 'noPlayerHasBlackjack'
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Main.c(791,18): error C1003: error count exceeds 100; stopping compilation

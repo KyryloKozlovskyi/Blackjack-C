@@ -3,9 +3,11 @@
 
 //Prototypes for the functions
 
-void Menu();
-void StartNewGame();
-void LoadGame();
-void ExitGame();
+void menu();
+void startNewGame();
+void loadGame();
+void exitGame();
+void initializeDeck(int numDecks);
+void shuffleDeck(int numDecks);
 
 #endif

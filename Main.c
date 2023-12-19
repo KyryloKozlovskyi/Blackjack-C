@@ -3,5 +3,5 @@
 
 void main()
 {
-	Menu();
+	menu();
 }

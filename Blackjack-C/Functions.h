@@ -3,6 +3,9 @@
 
 //Prototypes for the functions
 
-int Test(int a, int b);
+void Menu();
+void StartNewGame();
+void LoadGame();
+void ExitGame();
 
 #endif

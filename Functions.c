@@ -8,8 +8,13 @@
 // Const
 #define MAX_DECKS 4
 #define CARDS_PER_DECK 52
+#define MAX_PLAYERS 4 // 3 players + dealer
 // Global variables
 int deck[MAX_DECKS * CARDS_PER_DECK]; // Fixed-size array to store the deck
+int playerHands[MAX_PLAYERS][20];
+int numPlayers = 0;
+int numDecks = 0;
+int lastUsedCard = 0;
 
 void menu()
 {
@@ -44,9 +49,6 @@ void menu()
 
 void startNewGame()
 {
-    int numPlayers;
-    int numDecks;
-
     system("cls"); // Clear previous output
     printf("Starting a new game...\n");
     // Sleep(500); // Sleep for 0.5 sec
@@ -62,14 +64,24 @@ void startNewGame()
     // Initialize the deck
     initializeDeck(numDecks);
     shuffleDeck(numDecks);
-
-    // Deck validation
+    dealInitialCards(numPlayers);
+    
+    /*
+    // Deck validation - test code
     //printf("1st - %d\n ", deck[0]);
     //printf("last - %d\n ", deck[207]);
     printf("Shuffled deck:\n");
     for (int i = 0; i < numDecks * CARDS_PER_DECK; i++) {
         printf("%d\n", deck[i]);
         printf("i = %d\n", i);
+    }
+    */
+    
+
+    // Optionally, print the initial hands for demonstration purposes
+    printf("Initial hands:\n");
+    for (int player = 0; player <= numPlayers; player++) {
+        printf("Player %d: %d %d\n", player + 1, playerHands[player][0], playerHands[player][1]);
     }
 }
 
@@ -128,5 +140,21 @@ void shuffleDeck(int numDecks)
         int temp = deck[i];
         deck[i] = deck[j];
         deck[j] = temp;
+    }
+}
+
+// Function to deal initial 2 cards to all players
+void dealInitialCards(int numPlayers)
+{
+    printf("Dealing initial cards...\n");
+
+    // Deal two cards to each player and the dealer
+    for (int i = 0; i < 2; i++) {
+        for (int player = 0; player <= numPlayers; player++) {
+            // Assign a card to a player
+            int card = deck[player * 2 + i];
+            lastUsedCard = player * 2 + i;
+            playerHands[player][i] = card;
+        }
     }
 }

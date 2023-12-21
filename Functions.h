@@ -9,5 +9,6 @@ void loadGame();
 void exitGame();
 void initializeDeck(int numDecks);
 void shuffleDeck(int numDecks);
+void dealInitialCards(int numPlayers);
 
 #endif

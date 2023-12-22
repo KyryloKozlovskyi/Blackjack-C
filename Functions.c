@@ -11,10 +11,11 @@
 #define MAX_PLAYERS 4 // 3 players + dealer
 // Global variables
 int deck[MAX_DECKS * CARDS_PER_DECK]; // Fixed-size array to store the deck
-int playerHands[MAX_PLAYERS][20];
+int playerHands[MAX_PLAYERS][20]; //last plyaer is the dealer
 int numPlayers = 0;
 int numDecks = 0;
 int lastUsedCard = 0;
+int dealerHasBlackjack = 0; // Blackjack check
 
 void menu()
 {
@@ -76,13 +77,21 @@ void startNewGame()
         printf("i = %d\n", i);
     }
     */
-    
-
-    // Optionally, print the initial hands for demonstration purposes
+    // print the initial hands 
     printf("Initial hands:\n");
     for (int player = 0; player <= numPlayers; player++) {
-        printf("Player %d: %d %d\n", player + 1, playerHands[player][0], playerHands[player][1]);
+        if(player == numPlayers)
+        {
+            printf("Dealer: %d %d\n", playerHands[player][0], playerHands[player][1]);
+        }
+        else 
+        {
+            printf("Player %d: %d %d\n", player + 1, playerHands[player][0], playerHands[player][1]);
+
+        }
     }
+
+    findWinner();
 }
 
 void loadGame()
@@ -156,5 +165,37 @@ void dealInitialCards(int numPlayers)
             lastUsedCard = player * 2 + i;
             playerHands[player][i] = card;
         }
+    }
+
+    // Print the dealer's hand
+    printf("The dealer has: %d and a hole card\n", playerHands[numPlayers][0]);
+
+    // Dealer blackjack check
+    if (playerHands[numPlayers][0] == 10)
+    {
+        printf("The dealer peeks at his hole card\n");
+        if (playerHands[numPlayers][1] == 11) 
+        {
+            printf("The dealer has a Blackjack!\nDealer's hand: %d %d\n", playerHands[numPlayers][0], playerHands[numPlayers][1]);
+            dealerHasBlackjack = 1;
+        }
+    }
+    else if (playerHands[numPlayers][0] == 11) 
+    {
+        printf("The dealer peeks at his hole card\n");
+        if (playerHands[numPlayers][1] == 10)
+        {
+            printf("The dealer has a Blackjack!\nDealer's hand: %d %d\n", playerHands[numPlayers][0], playerHands[numPlayers][1]);
+            dealerHasBlackjack = 1;
+        }
+    }
+}
+
+void findWinner() // modify the function for other players
+{
+
+    if (dealerHasBlackjack == 1) // Dealer has a blackjack
+    {
+        printf("Dealer is the WINNER!\n");
     }
 }

@@ -1,3 +1,3 @@
 ﻿  Functions.c
-C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Functions.c(142,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\Functions.c(96,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
   Blackjack-C.vcxproj -> C:\Users\galin\OneDrive - Atlantic TU\Procedural Programming\Project\Blackjack-C\Blackjack-C\x64\Debug\Blackjack-C.exe

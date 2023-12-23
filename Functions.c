@@ -12,6 +12,7 @@
 // Global variables
 int deck[MAX_DECKS * CARDS_PER_DECK]; // Fixed-size array to store the deck
 int playerHands[MAX_PLAYERS][20]; // last plyaer is the dealer
+int playerBusted[MAX_PLAYERS][1]; // players with the blackjack
 int numPlayers = 0;
 int numDecks = 0;
 int lastUsedCard = 0;
@@ -256,6 +257,11 @@ void dealerTurn()
         int card = deck[lastUsedCard++];
         playerHands[numPlayers][cardIndex++] = card;
         printf("Dealer draws a card: %d\n", card);
+
+        if (calculateHandTotal(numPlayers) > 21) {
+            printf("Dealer is BUSTED!\n");
+            playerBusted[numPlayers][0] = 1; // keeps track of busted players
+        }
     }
 
     // Check for a soft 17 and draw another card
@@ -263,6 +269,11 @@ void dealerTurn()
         int card = deck[lastUsedCard++];
         playerHands[numPlayers][cardIndex++] = card;
         printf("Dealer draws a card (Soft 17): %d\n", card);
+
+        if (calculateHandTotal(numPlayers) > 21) {
+            printf("Dealer is BUSTED!\n");
+            playerBusted[numPlayers][0] = 1; // keeps track of busted players
+        }
     }
 
     // Print the dealer's hand
@@ -292,15 +303,100 @@ void hit(int player)
     // Check if the player is busted
     if (calculateHandTotal(player) > 21) {
         printf("Player %d BUSTED!\n", player + 1);
+        playerBusted[player][0] = 1; // keeps track of busted players
     }
 }
 
-void findWinner() // modify the function for other players
+void findWinner()
 {
+    int allPlayerTotal[MAX_PLAYERS][1];
+    int highestTotalPlayerIndex = 0;
+    int numberOfCards[MAX_PLAYERS][1];
 
-    if (dealerHasBlackjack == 1) // Dealer has a blackjack
-    {
-        printf("Dealer is the WINNER!\n");
+    printf("\nDetermining a winner...\n");
+
+    // Calculate total for all players including the dealer
+    for (int player = 0; player <= numPlayers; player++) {
+        allPlayerTotal[player][0] = calculateHandTotal(player);
+    }
+
+    // Calculate the number of cards for all players including the dealer
+    for (int player = 0; player <= numPlayers; player++) {
+        // Count the number of cards for each player
+        int numCards = 0;
+        for (int cardIndex = 0; cardIndex < 20; cardIndex++) {
+            if (playerHands[player][cardIndex] != 0) {
+                numCards++;
+            }
+            else {
+                break;
+            }
+        }
+        numberOfCards[player][0] = numCards;
+    }
+
+    // printf("Highest total player index %d\n", highestTotalPlayerIndex);
+
+    // If the dealer does have a blackjack, then all players will lose, unless the
+    // player also has a blackjack, which will result in a tie.
+    if (dealerHasBlackjack) {
+        printf("The dealer has a Blackjack!\nDealer's hand: %d %d\n",
+            playerHands[numPlayers][0], playerHands[numPlayers][1]);
+
+        for (int player = 0; player < numPlayers; player++) {
+            if (calculateHandTotal(player) == 21 && playerHands[player][2] == 0) {
+                // playerHasBlackjack[player][0] = 1;
+                printf("Player %d also has a Blackjack! It's a TIE!\n", player + 1);
+            }
+            else {
+                printf("Dealer WINS!\n");
+            }
+        }
+    }
+
+    // If the dealer goes over 21 points (BUSTED), then any player who didn't
+    // already bust will win.
+    if (playerBusted[numPlayers][0] == 1) {
+        for (int player = 0; player < numPlayers; player++) {
+            if (playerBusted[player][0] != 1) {
+                printf("Player %d WINS!\n", player + 1);
+            }
+        }
+    }
+
+    // If the dealer does not bust, then the higher point total between the player
+    // and dealer will win
+    if (playerBusted[numPlayers][0] != 1) {
+        int highestTotalPlayerIndex = 0;
+
+        // Find the highest total player index
+        for (int player = 0; player <= numPlayers; player++) {
+            if (allPlayerTotal[player][0] > allPlayerTotal[highestTotalPlayerIndex][0]
+                && playerBusted[player][0] != 1) {
+                highestTotalPlayerIndex = player;
+            }
+        }
+
+        // printf("Highest total player index %d\n", highestTotalPlayerIndex);
+
+        // Check for a tie in the higher total
+        for (int player = 0; player <= numPlayers; player++) {
+            if (player != highestTotalPlayerIndex
+                && allPlayerTotal[player][0]
+                == allPlayerTotal[highestTotalPlayerIndex][0]) {
+                // Compare the number of cards to break the tie
+                if (numberOfCards[player][0]
+        > numberOfCards[highestTotalPlayerIndex][0]) {
+                    highestTotalPlayerIndex = player;
+                }
+            }
+        }
+        if (highestTotalPlayerIndex == numPlayers) {
+            printf("Dealer WINS!\n");
+        }
+        else {
+            printf("Player %d WINS!\n", highestTotalPlayerIndex + 1);
+        }
     }
 }
 
@@ -325,38 +421,17 @@ void startNewGame()
     system("cls");
     dealInitialCards(numPlayers);
 
-    /*
-    // Deck validation - test code
-    //printf("1st - %d\n ", deck[0]);
-    //printf("last - %d\n ", deck[207]);
-    printf("Shuffled deck:\n");
-    for (int i = 0; i < numDecks * CARDS_PER_DECK; i++) {
-        printf("%d\n", deck[i]);
-        printf("i = %d\n", i);
-    }
-    */
-    // print the initial hands
-    /*
-    printf("Initial hands:\n");
-    for (int player = 0; player <= numPlayers; player++) {
-        if(player == numPlayers)
-        {
-            printf("Dealer: %d %d\n", playerHands[player][0],
-    playerHands[player][1]);
-        }
-        else
-        {
-            printf("Player %d: %d %d\n", player + 1, playerHands[player][0],
-    playerHands[player][1]);
-
-        }
-    }
-    */
-
     // Player turn loop
     for (int player = 0; player <= numPlayers - 1; player++) {
         playerTurn(player);
     }
     dealerTurn();
-    // findWinner();
+    findWinner();
+
+    /*
+    for (int player = 0; player <= numPlayers; player++) {
+        printf("Busted players: player %d - %d\n", player,
+    playerBusted[player][0]);
+    }
+    */
 }

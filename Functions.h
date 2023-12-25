@@ -2,7 +2,6 @@
 #define FUNCTIONS_H_INCLUDED
 
 // Prototypes for the functions
-
 void menu();
 void startNewGame();
 void loadGame();
@@ -16,5 +15,6 @@ void playerTurn(int player);
 int calculateHandTotal(int player);
 void hit(int player);
 void findWinner();
+void displaySavedStatus();
 
 #endif

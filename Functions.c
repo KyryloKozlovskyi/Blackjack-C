@@ -11,12 +11,14 @@
 #define MAX_PLAYERS 4 // 3 players + dealer
 // Global variables
 int deck[MAX_DECKS * CARDS_PER_DECK]; // Fixed-size array to store the deck
-int playerHands[MAX_PLAYERS][20]; // last plyaer is the dealer
-int playerBusted[MAX_PLAYERS][1]; // players with the blackjack
+int playerHands[MAX_PLAYERS][20]; // Last plyaer is the dealer
+int playerBusted[MAX_PLAYERS][1]; // Players with the blackjack
 int numPlayers = 0;
 int numDecks = 0;
 int lastUsedCard = 0;
 int dealerHasBlackjack = 0; // Blackjack check
+int playerTurnNum = 0;
+int menuFlag = 0;
 
 void menu()
 {
@@ -30,7 +32,6 @@ void menu()
     printf("*                  3 - Exit the game                      *\n");
     printf("*                                                         *\n");
     printf("***********************************************************\n");
-    // Sleep(1000);
 
     // Read user input
     printf("Select an option from 1 - 3: ");
@@ -52,8 +53,8 @@ void menu()
 void exitGame()
 {
     system("cls"); // Clear previous output
+    Sleep(500);
     printf("Exiting the game...\n");
-    // Sleep(500); // Sleep for 0.5 sec
     exit(0); // Terminate program execution
 }
 
@@ -61,6 +62,7 @@ void exitGame()
 void initializeDeck(int numDecks)
 {
     printf("Initializing the deck...\n");
+    Sleep(500);
     int cardIndex = 0;
     for (int deckNum = 0; deckNum < numDecks; deckNum++) {
         // Cards value 2 to 10
@@ -87,8 +89,9 @@ void initializeDeck(int numDecks)
 // Function to shuffle the deck
 void shuffleDeck(int numDecks)
 {
-    srand(time(NULL)); // seed the rand()
+    srand(time(NULL)); // Seed the rand()
     printf("Shuffling the deck...\n");
+    Sleep(500);
     int totalCards = numDecks * CARDS_PER_DECK;
     for (int i = totalCards - 1; i > 0; i--) {
         int j = rand() % (i + 1);
@@ -104,7 +107,7 @@ void shuffleDeck(int numDecks)
 void dealInitialCards(int numPlayers)
 {
     printf("Dealing initial cards...\n");
-    system("cls");
+    Sleep(500);
 
     // Deal two cards to each player and the dealer
     for (int i = 0; i < 2; i++) {
@@ -161,11 +164,12 @@ void printPlayerCards(int player)
     printf("\n");
 }
 
-void playerTurn(int player) // player turn + hit() call
+void playerTurn(int player) // Player turn + hit() call
 {
     int choice;
 
     do {
+        Sleep(500);
         printf("\n***** Player %d turn *****\n", player + 1);
         printPlayerCards(player);
         printf("Choose an option (1 - Stand, 2 - Hit, 3 - Save and Exit)\n");
@@ -176,7 +180,6 @@ void playerTurn(int player) // player turn + hit() call
         case 1:
             printf("Player %d stands.\n", player + 1);
             printf("%d - hand total\n", calculateHandTotal(player));
-            // printPlayerCards(player);
             printf("\n");
             break;
         case 2:
@@ -256,7 +259,7 @@ void dealerTurn()
 
         if (calculateHandTotal(numPlayers) > 21) {
             printf("Dealer is BUSTED!\n");
-            playerBusted[numPlayers][0] = 1; // keeps track of busted players
+            playerBusted[numPlayers][0] = 1; // Keeps track of busted players
         }
     }
 
@@ -268,7 +271,7 @@ void dealerTurn()
 
         if (calculateHandTotal(numPlayers) > 21) {
             printf("Dealer is BUSTED!\n");
-            playerBusted[numPlayers][0] = 1; // keeps track of busted players
+            playerBusted[numPlayers][0] = 1; // Keeps track of busted players
         }
     }
 
@@ -281,7 +284,7 @@ void dealerTurn()
 void hit(int player)
 {
     // Find the first 0 in the hand (0 means empty)
-    int cardIndex; // first empty slot in the hand
+    int cardIndex; // First empty slot in the hand
     for (cardIndex = 0; cardIndex < 20; ++cardIndex) {
         if (playerHands[player][cardIndex] == 0) {
             break;
@@ -290,7 +293,6 @@ void hit(int player)
 
     // Draw a card for the player
     int card = deck[lastUsedCard++];
-    // printf("%d - Last used card\n", lastUsedCard);
     playerHands[player][cardIndex] = card;
 
     printf("Player %d draws a card: %d\n", player + 1, card);
@@ -299,7 +301,7 @@ void hit(int player)
     // Check if the player is busted
     if (calculateHandTotal(player) > 21) {
         printf("Player %d BUSTED!\n", player + 1);
-        playerBusted[player][0] = 1; // keeps track of busted players
+        playerBusted[player][0] = 1; // Keeps track of busted players
     }
 }
 
@@ -310,6 +312,7 @@ void findWinner()
     int numberOfCards[MAX_PLAYERS][1];
 
     printf("\nDetermining a winner...\n");
+    Sleep(500);
 
     // Calculate total for all players including the dealer
     for (int player = 0; player <= numPlayers; player++) {
@@ -330,8 +333,6 @@ void findWinner()
         }
         numberOfCards[player][0] = numCards;
     }
-
-    // printf("Highest total player index %d\n", highestTotalPlayerIndex);
 
     // If the dealer does have a blackjack, then all players will lose, unless the
     // player also has a blackjack, which will result in a tie.
@@ -373,8 +374,6 @@ void findWinner()
             }
         }
 
-        // printf("Highest total player index %d\n", highestTotalPlayerIndex);
-
         // Check for a tie in the higher total
         for (int player = 0; player <= numPlayers; player++) {
             if (player != highestTotalPlayerIndex
@@ -394,13 +393,23 @@ void findWinner()
             printf("Player %d WINS!\n", highestTotalPlayerIndex + 1);
         }
     }
+    // Return to the main menu loop
+    do {
+        printf("\n\n1 - Return to main menu: ");
+        scanf_s("%d", &menuFlag);
+    } while (menuFlag != 1);
+    if (menuFlag == 1) {
+        system("cls"); // Clear previous output
+        Sleep(500);
+        menu();
+    }
 }
 
 void startNewGame()
 {
     system("cls"); // Clear previous output
     printf("Starting a new game...\n");
-    // Sleep(500); // Sleep for 0.5 sec
+    Sleep(500); // Sleep for 0.5 sec
 
     // Read user input
     printf("Enter a number of players (The dealer and player - 1, 2, 3): ");
@@ -419,20 +428,15 @@ void startNewGame()
 
     // Player turn loop
     for (int player = 0; player <= numPlayers - 1; player++) {
+        playerTurnNum = player;
         playerTurn(player);
     }
     dealerTurn();
     findWinner();
-
-    /*
-    for (int player = 0; player <= numPlayers; player++) {
-        printf("Busted players: player %d - %d\n", player,
-    playerBusted[player][0]);
-    }
-    */
 }
 
-void saveGame() {
+void saveGame()
+{
     FILE* file; // File pointer
     fopen_s(&file, "saveFile.txt", "w"); // Open file for writing
 
@@ -442,6 +446,7 @@ void saveGame() {
         fprintf(file, "%d\n", numDecks); // Used for loops
         fprintf(file, "%d\n", lastUsedCard); // Used for loops
         fprintf(file, "%d\n", dealerHasBlackjack); // Used for loops
+        fprintf(file, "%d\n", playerTurnNum); // Used for loops
 
         // Save the deck
         for (int i = 0; i < MAX_DECKS * CARDS_PER_DECK; i++) {
@@ -464,18 +469,34 @@ void saveGame() {
 
         fclose(file);
         printf("Game saved successfully!\n");
+        Sleep(500);
     }
     else {
         printf("Error saving the game.\n");
+        Sleep(500);
     }
     exitGame();
+}
+
+void displaySavedStatus()
+{
+    printf("\n***** Saved Game Status *****\n");
+    for (int player = 0; player < playerTurnNum; player++) {
+        printf("Player %d Hand: \n", player + 1);
+        for (int cardIndex = 0; cardIndex < 20; cardIndex++) {
+            if (playerHands[player][cardIndex] != 0) {
+                printf("%d ", playerHands[player][cardIndex]);
+            }
+        }
+    }
+    printf("\n*****************************\n\n");
 }
 
 // Loads the saved game status into the varibles
 void loadGame()
 {
-    FILE* file;
-    fopen_s(&file, "saveFile.txt", "r");
+    FILE* file; // File pointer
+    fopen_s(&file, "saveFile.txt", "r"); // Open file for reading
 
     if (file != NULL) {
         // Load game state
@@ -483,6 +504,7 @@ void loadGame()
         fscanf_s(file, "%d", &numDecks);
         fscanf_s(file, "%d", &lastUsedCard);
         fscanf_s(file, "%d", &dealerHasBlackjack);
+        fscanf_s(file, "%d", &playerTurnNum);
 
         // Load the deck
         for (int i = 0; i < MAX_DECKS * CARDS_PER_DECK; i++) {
@@ -496,19 +518,21 @@ void loadGame()
             }
         }
 
-        // Load busted players 
+        // Load busted players
         for (int player = 0; player <= numPlayers; player++) {
             fscanf_s(file, "%d", &playerBusted[player][0]);
         }
 
         fclose(file);
         printf("Game loaded successfully!\n");
+        Sleep(500);
 
-        // Continue the game from the loaded state
+        // Continue the game from the saved state
         dealInitialCards(numPlayers);
 
+        displaySavedStatus();
         // Player turn loop
-        for (int player = 0; player <= numPlayers - 1; player++) {
+        for (int player = playerTurnNum; player <= numPlayers - 1; player++) {
             playerTurn(player);
         }
         dealerTurn();
@@ -516,5 +540,6 @@ void loadGame()
     }
     else {
         printf("Error loading the game.\n");
+        Sleep(500);
     }
 }

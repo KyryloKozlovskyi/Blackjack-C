@@ -7,6 +7,7 @@ void menu();
 void startNewGame();
 void loadGame();
 void exitGame();
+void saveGame();
 void initializeDeck(int numDecks);
 void shuffleDeck(int numDecks);
 void dealInitialCards(int numPlayers);

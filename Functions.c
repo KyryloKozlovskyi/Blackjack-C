@@ -49,13 +49,6 @@ void menu()
     }
 }
 
-void loadGame()
-{
-    system("cls"); // Clear previous output
-    printf("Loading a game...\n");
-    // Sleep(500); // Sleep for 0.5 sec
-}
-
 void exitGame()
 {
     system("cls"); // Clear previous output
@@ -175,7 +168,7 @@ void playerTurn(int player) // player turn + hit() call
     do {
         printf("\n***** Player %d turn *****\n", player + 1);
         printPlayerCards(player);
-        printf("Choose an option (1 - Stand, 2 - Hit)\n");
+        printf("Choose an option (1 - Stand, 2 - Hit, 3 - Save and Exit)\n");
         printf("Your choice: ");
         scanf_s("%d", &choice);
 
@@ -190,6 +183,9 @@ void playerTurn(int player) // player turn + hit() call
             printf("Player %d hits.\n", player + 1);
             hit(player);
             printf("\n");
+            break;
+        case 3:
+            saveGame();
             break;
         default:
             printf("Invalid choice. Try again.\n");
@@ -434,4 +430,91 @@ void startNewGame()
     playerBusted[player][0]);
     }
     */
+}
+
+void saveGame() {
+    FILE* file; // File pointer
+    fopen_s(&file, "saveFile.txt", "w"); // Open file for writing
+
+    if (file != NULL) {
+        // Save game state (all variables)
+        fprintf(file, "%d\n", numPlayers); // Used for loops
+        fprintf(file, "%d\n", numDecks); // Used for loops
+        fprintf(file, "%d\n", lastUsedCard); // Used for loops
+        fprintf(file, "%d\n", dealerHasBlackjack); // Used for loops
+
+        // Save the deck
+        for (int i = 0; i < MAX_DECKS * CARDS_PER_DECK; i++) {
+            fprintf(file, "%d ", deck[i]);
+        }
+        fprintf(file, "\n");
+
+        // Save player hands
+        for (int player = 0; player <= numPlayers; player++) {
+            for (int cardIndex = 0; cardIndex < 20; cardIndex++) {
+                fprintf(file, "%d ", playerHands[player][cardIndex]);
+            }
+            fprintf(file, "\n");
+        }
+
+        // Save busted players
+        for (int player = 0; player <= numPlayers; player++) {
+            fprintf(file, "%d\n", playerBusted[player][0]);
+        }
+
+        fclose(file);
+        printf("Game saved successfully!\n");
+    }
+    else {
+        printf("Error saving the game.\n");
+    }
+    exitGame();
+}
+
+// Loads the saved game status into the varibles
+void loadGame()
+{
+    FILE* file;
+    fopen_s(&file, "saveFile.txt", "r");
+
+    if (file != NULL) {
+        // Load game state
+        fscanf_s(file, "%d", &numPlayers);
+        fscanf_s(file, "%d", &numDecks);
+        fscanf_s(file, "%d", &lastUsedCard);
+        fscanf_s(file, "%d", &dealerHasBlackjack);
+
+        // Load the deck
+        for (int i = 0; i < MAX_DECKS * CARDS_PER_DECK; i++) {
+            fscanf_s(file, "%d", &deck[i]);
+        }
+
+        // Load player hands
+        for (int player = 0; player <= numPlayers; player++) {
+            for (int cardIndex = 0; cardIndex < 20; cardIndex++) {
+                fscanf_s(file, "%d", &playerHands[player][cardIndex]);
+            }
+        }
+
+        // Load busted players 
+        for (int player = 0; player <= numPlayers; player++) {
+            fscanf_s(file, "%d", &playerBusted[player][0]);
+        }
+
+        fclose(file);
+        printf("Game loaded successfully!\n");
+
+        // Continue the game from the loaded state
+        dealInitialCards(numPlayers);
+
+        // Player turn loop
+        for (int player = 0; player <= numPlayers - 1; player++) {
+            playerTurn(player);
+        }
+        dealerTurn();
+        findWinner();
+    }
+    else {
+        printf("Error loading the game.\n");
+    }
 }

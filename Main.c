@@ -2,6 +2,5 @@
 #include "Functions.h"
 
 void main() { 
-
-	menu();
+	menu(); 
 }
